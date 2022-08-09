@@ -1,3 +1,8 @@
+"""
+Create an algorithm that receives two grades of a student
+and calculate then print its average
+"""
+
 def main():
     try:
         grade1, grade2 = capture_input()

@@ -1,3 +1,8 @@
+""" 
+Create an algorithm that receives the length and height
+of a wall (in meters) and prints its corresponding area
+"""
+
 def main():
     try:
         length, height = capture_input()
