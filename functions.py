@@ -1,6 +1,32 @@
+"""
+A terminal utility that allows users to select a function to run
+
+The functions displayed are algorithms with solutions to the
+exercises found in ./material/exercicios-iniciais.pdf
+
+The code is type hinted and can be subjected to a type checking
+utility such as mypy
+
+It is compliant to Python's styling conventions under PEP-8
+
+All functions ending in *_input captures and treats user input while
+others process this treated input and are unit tested in the
+test_functions.py file
+"""
+
 from typing import Union, Tuple
 
-def main():
+def main() -> None:
+    """
+    A user interface to capture and process user input
+
+    Through this interface the user is able to select which of the
+    functions they wish to run interactively
+
+    Returns
+    -------
+    None
+    """
 
     print("""\nSelect the function you want to run
     
@@ -71,7 +97,7 @@ def heading(heading: str, size=60):
     print(f"{dashes}\n")
 
 
-def calc_area_input():
+def calc_area_input() -> None:
     """
     Gets user input, validates and converts it appropriately. 
     
@@ -120,7 +146,7 @@ def calc_area(length: float, height: float) -> float:
     return length * height
 
 
-def calc_average_input():
+def calc_average_input() -> None:
     """
     Gets user input, validates and converts it appropriately.
     
@@ -169,7 +195,7 @@ def calc_average(grade1: float, grade2: float) -> float:
     return (grade1 + grade2) * 0.5
 
 
-def seconds_to_hours_input():
+def seconds_to_hours_input() -> None:
     """
     Gets user input, validates and converts it appropriately.
     
@@ -247,7 +273,7 @@ def format_hours(hours: int, mins: int, secs: int) -> str:
         return f"{hours} hours {mins} minutes and {secs} seconds"
 
 
-def time_in_days_input():
+def time_in_days_input() -> None:
     """
     Gets user input, validates and converts it appropriately.
     
@@ -303,7 +329,7 @@ def time_in_days(years: int, months: int, days: int) -> int:
     return years * 365 + months * 30 + days
 
 
-def calc_weigthed_average_input():
+def calc_weigthed_average_input() -> None:
     """
     Gets user input, validates and converts it appropriately.
     
@@ -359,7 +385,7 @@ def calc_weighted_average(
     return sum([round(x * y, 2) for x, y in cat])
 
 
-def squared_average_input():
+def squared_average_input() -> None:
     """
     Gets user input, validates and converts it appropriately.
     
@@ -422,7 +448,7 @@ def squared_average(a: int, b: int, c: int) -> Tuple[int, int, float]:
     return r, s, d
 
 
-def customer_cost_input():
+def customer_cost_input() -> None:
     """
     Gets user input, validates and converts it appropriately.
     
