@@ -6,3 +6,6 @@ pyvenv.cfg
 
 # ipykernel
 share
+
+# python
+__pycache__
