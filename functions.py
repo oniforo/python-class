@@ -1,28 +1,5 @@
 from typing import Union, Tuple
 
-"""
-1. Faça um algoritmo que leia a largura e altura de uma parede (em 
-metros) e exiba a área da Parede.
-2. Faça um algoritmo que leia duas notas de um aluno, calcule e exiba a 
-média aritmética das notas.
-3. Faça um algoritmo que leia o tempo de duração de um evento em uma 
-fábrica expressa em segundos e mostre-o expresso em horas, minutos e 
-segundos.
-4. Faça um algoritmo que leia a idade de uma pessoa expressa em anos, 
-meses e dias e mostre-a expressa apenas em dias.
-5. Faça um algoritmo que leia as 3 notas de um aluno e calcule a média 
-final deste aluno. Considerar que a média é ponderada e que os pesos
-das notas são 2,3 e 5, respectivamente.
-6. Escreva um algoritmo que leia três números inteiros e positivos (A, B, C) 
-e calcule a seguinte expressão:
-R = (A + B) ^ 2, S = (B + C) ^ 2 e D = (R + S) / 2
-7. O custo ao consumidor de um carro novo é a soma do custo de fábrica 
-com a percentagem do distribuidor e dos impostos (aplicados ao custo 
-de fábrica). Supondo que a percentagem do distribuidor seja de 28% e 
-os impostos de 45%, escrever um algoritmo que leia o custo de fábrica 
-de um carro e escreva o custo ao consumidor
-"""
-
 def main():
 
     print("""\nSelect the function you want to run
@@ -37,6 +14,7 @@ def main():
     
     [0] Cancel
     """)
+
     try:
         selection = input("Function number: ")
         print("")
@@ -68,9 +46,13 @@ def calc_area_input():
     """
     Gets user input, validates and converts it appropriately. 
     
-    Gets the length and height of a wall as input, converts it into
+    Gets the length and height of a wall as input, converts them into
     floating point numbers, validates them as positive, calculates
     (using calc_area function) and prints its corresponding area.
+
+    Returns
+    -------
+    None
     """
     
     try:
@@ -89,6 +71,22 @@ def calc_area_input():
     
 
 def calc_area(length: float, height: float) -> float:
+    """
+    Calculates the area of the wall
+
+    Parameters
+    ----------
+    length : float
+        The length of the wall
+    height : float
+        The height of the wall
+
+    Returns
+    -------
+    float
+        The area of the wall
+    """
+    
     return length * height
 
 
@@ -96,9 +94,13 @@ def calc_average_input():
     """
     Gets user input, validates and converts it appropriately.
     
-    Gets two grades as input, converts it into floating point numbers,
-    validates them as positive, calculates (using calc_average 
-    function) and prints its corresponding average.
+    Gets two grades as input, converts them into floating point 
+    numbers, validates them as positive, calculates (using calc_average
+    function) and prints their corresponding average.
+
+    Returns
+    -------
+    None
     """
 
     try:
@@ -117,6 +119,22 @@ def calc_average_input():
 
 
 def calc_average(grade1: float, grade2: float) -> float:
+    """
+    Calculates the average of two grades
+
+    Parameters
+    ----------
+    grade1 : float
+        The first grade
+    grade2 : float
+        The second grade
+
+    Returns
+    -------
+    float
+        The average of both grades
+    """
+    
     return (grade1 + grade2) * 0.5
 
 
@@ -126,8 +144,12 @@ def seconds_to_hours_input():
     
     Gets a time in seconds as input, converts it into an integer,
     validates it as positive, calculates (using seconds_to_hours
-    function), formats (using format_hours function) and prints its
-    corresponding time in hours, minutes and seconds. 
+    function), formats (using format_hours function) and prints it as
+    a time in hours, minutes and seconds.
+
+    Returns
+    -------
+    None
     """
 
     try:
@@ -146,6 +168,20 @@ def seconds_to_hours_input():
 
 
 def seconds_to_hours(seconds: int) -> Tuple[int, int, int]:
+    """
+    Converts a time in seconds into hours, minutes and seconds
+
+    Parameters
+    ----------
+    seconds : int
+        The number of seconds
+
+    Returns
+    -------
+    (int, int, int)
+        The number of hours, minutes and seconds, respectively
+    """
+    
     hours = seconds // 3600
     mins = seconds % 3600 // 60
     secs = seconds % 3600 % 60
@@ -153,6 +189,24 @@ def seconds_to_hours(seconds: int) -> Tuple[int, int, int]:
 
 
 def format_hours(hours: int, mins: int, secs: int) -> str:
+    """
+    Converts hours, minutes and seconds into a descriptive string
+
+    Parameters
+    ----------
+    hours : int
+        The number of hours
+    mins : int
+        The number of minutes
+    secs : int
+        The number of seconds
+
+    Returns
+    -------
+    str
+        A descriptive time string
+    """
+    
     if hours == 0:
         if mins == 0:
             return f"{secs} seconds"
@@ -166,9 +220,13 @@ def time_in_days_input():
     """
     Gets user input, validates and converts it appropriately.
     
-    Gets years, months and days of an age as input, converts it into
+    Gets years, months and days of an age as input, converts them into
     integer, validates as positive, calculates (using time_in_days
-    function) and prints its corresponding time in days.
+    function) and prints the corresponding time in days.
+
+    Returns
+    -------
+    None
     """
 
     try:
@@ -189,6 +247,27 @@ def time_in_days_input():
 
 
 def time_in_days(years: int, months: int, days: int) -> int:
+    """
+    Converts an age given in years, months and days to days
+
+    Considers every year has 365 days and every month has 30 days for
+    simplification.
+
+    Parameters
+    ----------
+    years : int
+        The number of years
+    months : int
+        The number of months
+    days : int
+        The number of days
+
+    Returns
+    -------
+    int
+        The converted age to days only
+    """
+
     print("\033[92mConsidering a year of 365 and a month of 30 days\033[00m")
     return years * 365 + months * 30 + days
 
@@ -201,6 +280,10 @@ def calc_weigthed_average_input():
     numbers, validates them as positive, calculates (using 
     calc_weighted_average function) and prints the corresponding 
     weighted average.
+
+    Returns
+    -------
+    None
     """
     
     try:
@@ -223,6 +306,22 @@ def calc_weighted_average(
     grades: Tuple[float, float, float], 
     _weights=(2, 3, 5)
 ) -> float:
+    """
+    Calculates the weighted average of three grades
+
+    Parameters
+    ----------
+    grade : (float, float, float)
+        The respective grades
+    _weights : (int, int, int), optional
+        The respective weights (default is (2, 3, 5))
+    
+    Returns
+    -------
+    float
+        The weighted average of the three grades
+    """
+    
     print(f"\033[92mConsidering the weights {_weights}\033[00m")
     weights = list(map(lambda x: x/sum(_weights), _weights))
     cat = list(zip(grades, weights))
@@ -233,12 +332,16 @@ def squared_average_input():
     """
     Gets user input, validates and converts it appropriately.
     
-    Gets three positive integers as input, validates them, calculates 
-    (using squared_average function) and prints the following
-    expressions:
+    Gets three positive integers A, B and C as input, validates them,
+    calculates (using squared_average function) and prints the 
+    following expressions:
         R = (A + B) ^ 2
         S = (B + C) ^ 2
         D = (R + S) / 2
+
+    Returns
+    -------
+    None
     """
 
     try:
@@ -258,6 +361,28 @@ def squared_average_input():
         print(f"\033[91mUser aborted.\033[00m")
 
 def squared_average(a: int, b: int, c: int) -> Tuple[int, int, float]:
+    """
+    Runs calculation with the given integers A, B and C
+
+    R = (A + B) ^ 2
+    S = (B + C) ^ 2
+    D = (R + S) / 2
+
+    Parameters
+    ----------
+    a : int
+        An integer
+    b : int
+        An integer
+    c : int
+        An integer
+
+    Returns
+    -------
+    (int, int, float)
+        The results of R, S and D as described above, respectively
+    """
+    
     print("\033[92mThe following will be calculated\033[00m")
     print("\033[92mR = (A + B) ^ 2, S = (B + C) ^ 2 e D = (R + S) / 2\033[00m")
     r = (a + b) ** 2
@@ -272,7 +397,11 @@ def customer_cost_input():
     
     Gets the factory cost of a new car as input, converts it into a
     floating point number, calculates (using customer_cost function) 
-    and prints the corresponding customer cost. 
+    and prints the corresponding customer cost.
+
+    Returns
+    -------
+    None
     """
 
     try:
@@ -289,7 +418,28 @@ def customer_cost_input():
         print(f"\033[91mUser aborted.\033[00m")
 
 
-def customer_cost(factory_cost: float, dist_perc=0.28, taxes=.45) -> float:
+def customer_cost(factory_cost: float, dist_perc=.28, taxes=.45) -> float:
+    """
+    Calculates customer cost given the factory cost of a car
+
+    The customer cost takes into account the factory cost and also the
+    distributor percentage and taxes
+
+    Parameters
+    ----------
+    factory_cost : float
+        The factory cost of the car
+    dist_perc : float, optional
+        The distributor percentage (default is .28)
+    taxes : float, optional
+        The taxes (default is .45)
+
+    Returns
+    -------
+    float
+        The customer cost of the car
+    """
+    
     print(f"\033[92mConsidering a distributor percentage of {round(100 * dist_perc, 2)}%\033[00m")
     print(f"\033[92mConsidering taxes of {round(100 * taxes, 2)}%\033[00m")
     return (1 + dist_perc + taxes) * factory_cost
