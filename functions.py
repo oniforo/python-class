@@ -65,6 +65,14 @@ def main():
 
 
 def calc_area_input():
+    """
+    Gets user input, validates and converts it appropriately. 
+    
+    Gets the length and height of a wall as input, converts it into
+    floating point numbers, validates them as positive, calculates
+    (using calc_area function) and prints its corresponding area.
+    """
+    
     try:
         length = input("Enter the length of the wall: ")
         height = input("Enter the height of the wall: ")
@@ -85,6 +93,14 @@ def calc_area(length: float, height: float) -> float:
 
 
 def calc_average_input():
+    """
+    Gets user input, validates and converts it appropriately.
+    
+    Gets two grades as input, converts it into floating point numbers,
+    validates them as positive, calculates (using calc_average 
+    function) and prints its corresponding average.
+    """
+
     try:
         grade1 = input("Enter grade #1: ")
         grade2 = input("Enter grade #2: ")
@@ -105,6 +121,15 @@ def calc_average(grade1: float, grade2: float) -> float:
 
 
 def seconds_to_hours_input():
+    """
+    Gets user input, validates and converts it appropriately.
+    
+    Gets a time in seconds as input, converts it into an integer,
+    validates it as positive, calculates (using seconds_to_hours
+    function), formats (using format_hours function) and prints its
+    corresponding time in hours, minutes and seconds. 
+    """
+
     try:
         seconds = input("Enter the time in seconds: ")
         secondsi = int(seconds)
@@ -138,6 +163,14 @@ def format_hours(hours: int, mins: int, secs: int) -> str:
 
 
 def time_in_days_input():
+    """
+    Gets user input, validates and converts it appropriately.
+    
+    Gets years, months and days of an age as input, converts it into
+    integer, validates as positive, calculates (using time_in_days
+    function) and prints its corresponding time in days.
+    """
+
     try:
         print(f"\033[92mPlease provide years, months and days of an age\033[00m")
         _years = input("Years: ")
@@ -161,6 +194,15 @@ def time_in_days(years: int, months: int, days: int) -> int:
 
 
 def calc_weigthed_average_input():
+    """
+    Gets user input, validates and converts it appropriately.
+    
+    Gets three grades as input, converts them into floating point
+    numbers, validates them as positive, calculates (using 
+    calc_weighted_average function) and prints the corresponding 
+    weighted average.
+    """
+    
     try:
         _grade1 = input("Enter grade #1: ")
         _grade2 = input("Enter grade #2: ")
@@ -188,6 +230,17 @@ def calc_weighted_average(
 
 
 def squared_average_input():
+    """
+    Gets user input, validates and converts it appropriately.
+    
+    Gets three positive integers as input, validates them, calculates 
+    (using squared_average function) and prints the following
+    expressions:
+        R = (A + B) ^ 2
+        S = (B + C) ^ 2
+        D = (R + S) / 2
+    """
+
     try:
         print(f"\033[92mPlease provide three positive integers A, B and C\033[00m")
         _a = input("A: ")
@@ -214,6 +267,14 @@ def squared_average(a: int, b: int, c: int) -> Tuple[int, int, float]:
 
 
 def customer_cost_input():
+    """
+    Gets user input, validates and converts it appropriately.
+    
+    Gets the factory cost of a new car as input, converts it into a
+    floating point number, calculates (using customer_cost function) 
+    and prints the corresponding customer cost. 
+    """
+
     try:
         _cost = input("Enter the factory cost: ")
         cost = float(_cost)
