@@ -37,6 +37,7 @@ def main() -> None:
     [5] Calculate weighted average of three grades
     [6] Calculate squared sums and its average
     [7] Calculate customer cost of a car
+    [8] Calculate excess weight and corresponding tax
     
     [0] Cancel
     """)
@@ -71,6 +72,9 @@ def main() -> None:
     elif selection == "7":
         heading("Calculate customer cost of a car")
         customer_cost_input()
+    elif selection == "8":
+        heading("Calculate excess weight and corresponding tax")
+        calc_excess_weight_input()
     else:
         print("\033[91mInvalid option.\033[00m\n")
 
@@ -503,6 +507,59 @@ def customer_cost(factory_cost: float, dist_perc=.28, taxes=.45) -> float:
     cust_cost = (1 + dist_perc + taxes) * factory_cost
     cust_cost = round(cust_cost, 2)
     return cust_cost
+
+
+def calc_excess_weight_input() -> None:
+    """
+    Gets user input, validates and converts it appropriately. 
+    
+    Gets the fished weight as input, converts it into a floating point
+    number, validates as positive, calculates (using calc_excess_weight
+    function) and prints the corresponding excess weight and taxes 
+    given the limit provided
+
+    Returns
+    -------
+    None
+    """
+    
+    try:
+        _weight = input("Enter the fished weight: ")
+        weight = float(_weight)
+        if weight < 0:
+            print(f"\033[91mInput must be positive.\033[00m")
+        else:
+            excess, tax = calc_excess_weight(weight)
+            print(f"\n\033[92mExcess: {excess} Tax: {tax}\033[00m\n")
+    except ValueError:
+        print(f"\n\033[91mInput must be numeric.\033[00m\n")
+    except KeyboardInterrupt:
+        print(f"\033[91mUser aborted.\033[00m\n")
+
+
+def calc_excess_weight(weight: float, limit=50) -> Tuple[float, float]:
+    """
+    Calculates excess weight and tax given a weight and limit
+
+    Parameters
+    ----------
+    weight : float
+        The fished weight
+    limit : float, optional
+        The threshold for application of taxes (default is 50)
+
+    Returns
+    -------
+    (float, float)
+        The excess weight and tax, respectively
+    """
+    
+    if weight > limit:
+        excess = round(weight - limit, 2)
+        tax = round(4 * excess, 2)
+        return excess, tax
+    else:
+        return 0, 0
 
 
 if __name__ == "__main__":
