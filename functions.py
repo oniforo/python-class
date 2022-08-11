@@ -9,7 +9,7 @@ def main():
     [3] Convert seconds to hours, minutes and seconds
     [4] Convert years, months and days to days
     [5] Calculate weighted average of three grades
-    [6] Calculate sqaured sums and its average
+    [6] Calculate squared sums and its average
     [7] Calculate customer cost of a car
     
     [0] Cancel
@@ -25,21 +25,50 @@ def main():
     if selection == "0":
         return
     elif selection == "1":
+        heading("Calculate area of wall")
         calc_area_input()
     elif selection == "2":
+        heading("Calculate average of two grades")
         calc_average_input()
     elif selection == "3":
+        heading("Convert seconds to hours, minutes and seconds")
         seconds_to_hours_input()
     elif selection == "4":
+        heading("Convert years, months and days to days")
         time_in_days_input()
     elif selection == "5":
+        heading("Calculate weighted average of three grades")
         calc_weigthed_average_input()
     elif selection == "6":
+        heading("Calculate squared sums and its average")
         squared_average_input()
     elif selection == "7":
+        heading("Calculate customer cost of a car")
         customer_cost_input()
     else:
         print("\033[91mInvalid option.\033[00m\n")
+
+
+def heading(heading: str, size=60):
+    """
+    Creates a heading with dashes above and below centralized string
+
+    Parameters
+    ----------
+    heading : str
+        The string to create the heading from
+    size : int, optional
+        The length of the heading (default is 60)
+    Returns
+    -------
+    None
+    """
+    dashes = "-" * size
+    margin = " " * int((size - len(heading)) / 2)
+
+    print(dashes)
+    print(f"{margin}{heading}{margin}")
+    print(f"{dashes}\n")
 
 
 def calc_area_input():
@@ -63,11 +92,12 @@ def calc_area_input():
             print(f"\033[91mInputs must be positive.\033[00m")
         else:
             area = calc_area(lengthf, heightf)
-            print(f"\033[92mThe area of the wall is {area}\033[00m")
+            area = round(area, 2)
+            print(f"\n\033[92mThe area of the wall is {area}\033[00m\n")
     except ValueError:
-        print(f"\033[91mInputs must be numeric.\033[00m")
+        print(f"\n\033[91mInputs must be numeric.\033[00m\n")
     except KeyboardInterrupt:
-        print(f"\033[91mUser aborted.\033[00m")
+        print(f"\033[91mUser aborted.\033[00m\n")
     
 
 def calc_area(length: float, height: float) -> float:
@@ -111,11 +141,12 @@ def calc_average_input():
             print(f"\033[91mInputs must be positive.\033[00m")
         else:
             average = calc_average(grade1f, grade2f)
-            print(f"\033[92mThe average grade is {average}\033[00m")
+            average = round(average, 2)
+            print(f"\n\033[92mThe average grade is {average}\033[00m\n")
     except ValueError:
-        print(f"\033[91mInputs must be numeric.\033[00m")
+        print(f"\n\033[91mInputs must be numeric.\033[00m\n")
     except KeyboardInterrupt:
-        print(f"\033[91mUser aborted.\033[00m")
+        print(f"\033[91mUser aborted.\033[00m\n")
 
 
 def calc_average(grade1: float, grade2: float) -> float:
@@ -160,11 +191,11 @@ def seconds_to_hours_input():
         else:
             hours, mins, secs = seconds_to_hours(secondsi)
             time = format_hours(hours, mins, secs)
-            print(f"\033[92m{time}\033[00m")
+            print(f"\n\033[92m{time}\033[00m\n")
     except ValueError:
-        print(f"\033[91mInput must be an integer.\033[00m")
+        print(f"\n\033[91mInput must be an integer.\033[00m\n")
     except KeyboardInterrupt:
-        print(f"\033[91mUser aborted.\033[00m")
+        print(f"\033[91mUser aborted.\033[00m\n")
 
 
 def seconds_to_hours(seconds: int) -> Tuple[int, int, int]:
@@ -230,7 +261,7 @@ def time_in_days_input():
     """
 
     try:
-        print(f"\033[92mPlease provide years, months and days of an age\033[00m")
+        print(f"\033[92mPlease provide years, months and days of an age\033[00m\n")
         _years = input("Years: ")
         _months = input("Months: ")
         _days = input("Days: ")
@@ -239,11 +270,11 @@ def time_in_days_input():
             print(f"\033[91mInputs must be positive.\033[00m")
         else:
             total_days = time_in_days(years, months, days)
-            print(f"\033[92mTotal time in days is {total_days}\033[00m")
+            print(f"\n\033[92mTotal time in days is {total_days}\033[00m\n")
     except ValueError:
-        print(f"\033[91mInputs must be integers.\033[00m")
+        print(f"\n\033[91mInputs must be integers.\033[00m\n")
     except KeyboardInterrupt:
-        print(f"\033[91mUser aborted.\033[00m")
+        print(f"\033[91mUser aborted.\033[00m\n")
 
 
 def time_in_days(years: int, months: int, days: int) -> int:
@@ -268,7 +299,7 @@ def time_in_days(years: int, months: int, days: int) -> int:
         The converted age to days only
     """
 
-    print("\033[92mConsidering a year of 365 and a month of 30 days\033[00m")
+    print("\nConsidering a year of 365 and a month of 30 days")
     return years * 365 + months * 30 + days
 
 
@@ -295,11 +326,11 @@ def calc_weigthed_average_input():
             print(f"\033[91mInputs must be positive.\033[00m")
         else:
             w_average = calc_weighted_average((grade1, grade2, grade3))
-            print(f"\033[92mThe weighted average grade is {w_average}\033[00m")
+            print(f"\n\033[92mThe weighted average grade is {w_average}\033[00m\n")
     except ValueError:
-        print(f"\033[91mInputs must be numeric.\033[00m")
+        print(f"\n\033[91mInputs must be numeric.\033[00m\n")
     except KeyboardInterrupt:
-        print(f"\033[91mUser aborted.\033[00m")
+        print(f"\033[91mUser aborted.\033[00m\n")
 
 
 def calc_weighted_average(
@@ -322,7 +353,7 @@ def calc_weighted_average(
         The weighted average of the three grades
     """
     
-    print(f"\033[92mConsidering the weights {_weights}\033[00m")
+    print(f"\nConsidering the weights {_weights}")
     weights = list(map(lambda x: x/sum(_weights), _weights))
     cat = list(zip(grades, weights))
     return sum([round(x * y, 2) for x, y in cat])
@@ -345,7 +376,7 @@ def squared_average_input():
     """
 
     try:
-        print(f"\033[92mPlease provide three positive integers A, B and C\033[00m")
+        print(f"\033[92mPlease provide three positive integers A, B and C\033[00m\n")
         _a = input("A: ")
         _b = input("B: ")
         _c = input("C: ")
@@ -354,11 +385,11 @@ def squared_average_input():
             print(f"\033[91mInputs must be positive.\033[00m")
         else:
             r, s, d = squared_average(a, b, c)
-            print(f"\033[92mR: {r} S: {s} D: {d}\033[00m")
+            print(f"\n\033[92mR: {r} S: {s} D: {d}\033[00m\n")
     except ValueError:
-        print(f"\033[91mInputs must be integers.\033[00m")
+        print(f"\n\033[91mInputs must be integers.\033[00m\n")
     except KeyboardInterrupt:
-        print(f"\033[91mUser aborted.\033[00m")
+        print(f"\033[91mUser aborted.\033[00m\n")
 
 def squared_average(a: int, b: int, c: int) -> Tuple[int, int, float]:
     """
@@ -383,7 +414,7 @@ def squared_average(a: int, b: int, c: int) -> Tuple[int, int, float]:
         The results of R, S and D as described above, respectively
     """
     
-    print("\033[92mThe following will be calculated\033[00m")
+    print("\n\033[92mThe following will be calculated\033[00m")
     print("\033[92mR = (A + B) ^ 2, S = (B + C) ^ 2 e D = (R + S) / 2\033[00m")
     r = (a + b) ** 2
     s = (b + c) ** 2
@@ -411,11 +442,11 @@ def customer_cost_input():
             print(f"\033[91mInput must be positive.\033[00m")
         else:
             cust_cost = customer_cost(cost)
-            print(f"\033[92mThe total customer cost is {cust_cost}\033[00m")
+            print(f"\n\033[92mThe total customer cost is {cust_cost}\033[00m\n")
     except ValueError:
-        print(f"\033[91mInput must be numeric.\033[00m")
+        print(f"\n\033[91mInput must be numeric.\033[00m\n")
     except KeyboardInterrupt:
-        print(f"\033[91mUser aborted.\033[00m")
+        print(f"\033[91mUser aborted.\033[00m\n")
 
 
 def customer_cost(factory_cost: float, dist_perc=.28, taxes=.45) -> float:
@@ -440,9 +471,12 @@ def customer_cost(factory_cost: float, dist_perc=.28, taxes=.45) -> float:
         The customer cost of the car
     """
     
-    print(f"\033[92mConsidering a distributor percentage of {round(100 * dist_perc, 2)}%\033[00m")
+    print(f"\n\033[92mConsidering a distributor percentage of {round(100 * dist_perc, 2)}%\033[00m")
     print(f"\033[92mConsidering taxes of {round(100 * taxes, 2)}%\033[00m")
-    return (1 + dist_perc + taxes) * factory_cost
+    
+    cust_cost = (1 + dist_perc + taxes) * factory_cost
+    cust_cost = round(cust_cost, 2)
+    return cust_cost
 
 
 if __name__ == "__main__":
